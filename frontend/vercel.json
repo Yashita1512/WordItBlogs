@@ -1,17 +1,28 @@
 {
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "dist" }
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/dist/$1" }
-    ],
-    
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/old-url", "status": 301, "headers": { "Location": "/new-url" } },
+    { "src": "/api/(.*)", "dest": "/api/$1.js" }
+  ],
+  "rewrites": [
+    { "source": "/base-path/(.*)", "destination": "/$1" }
+  ],
+  "redirects": [
+    { "source": "/old-page", "destination": "/new-page", "statusCode": 301 }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "max-age=0, must-revalidate" }
+      ]
+    }
+  ],
+  "env": {
+    "API_URL": "https://api.example.com"
+  },
+  "trailingSlash": true
+}
