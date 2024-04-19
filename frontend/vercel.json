@@ -1,28 +1,39 @@
 {
   "version": 2,
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build" }
-  ],
-  "routes": [
-    { "src": "/old-url", "status": 301, "headers": { "Location": "/new-url" } },
-    { "src": "/api/(.*)", "dest": "/api/$1.js" }
-  ],
-  "rewrites": [
-    { "source": "/base-path/(.*)", "destination": "/$1" }
-  ],
-  "redirects": [
-    { "source": "/old-page", "destination": "/new-page", "statusCode": 301 }
-  ],
-  "headers": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "max-age=0, must-revalidate" }
-      ]
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
-  "env": {
-    "API_URL": "https://api.example.com"
-  },
-  "trailingSlash": true
+  "routes": [
+    {
+      "src": "/old-url",
+      "status": 301,
+      "headers": { "Location": "/new-url" }
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/function.js"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer"
+      }
+    }
+  ]
 }
