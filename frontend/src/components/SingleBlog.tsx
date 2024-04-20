@@ -19,9 +19,9 @@ interface BlogCardTypes{
 
 export const SingleBlog = ({ FullBlog } : BlogCardTypes )=>{
         return <>
-            <div className="w-10/12 md:w-8/12 mt-16 grid grid-cols-4">
+            <div className="w-10/12 md:w-8/12 mt-16 xl:grid grid-cols-4">
                 <div className="col-span-3">
-                    <div className="text-5xl font-bold">
+                    <div className="text-2xl md:text-5xl font-bold">
                         {FullBlog.title}
                     </div>
                     <div className="text-slate-400 my-8">
@@ -31,8 +31,8 @@ export const SingleBlog = ({ FullBlog } : BlogCardTypes )=>{
                         {FullBlog.content}
                     </div>
                 </div>
-            <div className="ml-4">
-                <div>
+            <div className="xl:ml-4">
+                <div className="mt-8 xl:mt-1">
                     Author
                 </div>
                 <div className="flex items-center mt-4">
