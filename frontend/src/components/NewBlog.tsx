@@ -25,10 +25,8 @@ export const NewBlog = () => {
                 <Link to='/blogs'>
                     <button type="button" className="text-white bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-10 py-2.5" onClick={async()=>{
                         await axios.post(`${BACKEND_URL}/api/v1/blog`, {
-                           blogInputs : {
                             title : blogInputs.title,
                             content : blogInputs.content
-                           }
                         },{
                             headers:{
                                 Authorization : localStorage.getItem('token')
