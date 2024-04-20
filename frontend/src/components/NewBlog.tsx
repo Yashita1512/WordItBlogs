@@ -8,7 +8,7 @@ export const NewBlog = () => {
 
     const [blogInputs, setBlogInputs] = useState<CreateBlogInput>({
         title: "",
-        content: ""
+        content: "",
     })
 
     return <>

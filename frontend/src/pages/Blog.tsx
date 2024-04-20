@@ -22,13 +22,13 @@ export const Blog = () => {
 
     if(!blog){
         return <>
-            <Appbar/>
+            <Appbar button={true} buttonText="New Blog"/>
             <div>Can't fetch blog details</div>
         </>
     }
 
     return <>
-        <Appbar/>
+        <Appbar  button={true} buttonText="New Blog"/>
         <div key = {id} className="flex justify-center">
            <SingleBlog FullBlog={blog} />
         </div>
