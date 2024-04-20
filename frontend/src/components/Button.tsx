@@ -1,6 +1,6 @@
 interface buttonInputTypes {
     buttonLabel: string, 
-    sendData: (e:any)=>void
+    sendData?: (e:any)=>void
 }
 
 export const Button = ({buttonLabel, sendData}:buttonInputTypes)=>{

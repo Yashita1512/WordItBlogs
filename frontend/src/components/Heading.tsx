@@ -1,6 +1,6 @@
-export const Heading = ({text}:{text:string})=>{
+export const Heading = ({text, className}:{text:string, className?:string})=>{
     return <>
-        <div className="text-3xl font-bold mb-3 flex justify-center">
+        <div className={`${className} text-xl font-bold mb-3 flex justify-center`}>
             {text}
         </div>
     </>
