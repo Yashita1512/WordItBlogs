@@ -6,7 +6,7 @@ import { CreateBlogInput } from "@yashita11/common";
 
 export const NewBlog = () => {
 
-    const [blogInputs, setBlogInputs] = useState<CreateBlogInput>({
+    const [blogInputs, setBlogInputs] = useState({
         title: "",
         content: "",
     })
