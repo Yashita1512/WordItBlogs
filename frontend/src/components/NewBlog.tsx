@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from "react"
 import { Link } from "react-router-dom"
 import { BACKEND_URL } from "../../config";
 import axios from "axios";
-import { CreateBlogInput } from "@yashita11/common";
 
 export const NewBlog = () => {
 
