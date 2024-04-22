@@ -28,9 +28,12 @@ userRouter.post('/signup', async (c) => {
           lastName: body.data.lastName
         }
       })
-  
+      const name = user.firstName + " " + user.lastName;
       const token = await sign(user.id, c.env.JWT_SECRET)
-      return c.text(token)
+      return c.json({
+        name,
+        token
+      })
     } catch(err){
       console.log(err)
       c.status(411)
@@ -63,9 +66,12 @@ userRouter.post('/signup', async (c) => {
         c.status(403)//unauthorized
         return c.text('User doesnt exist');
       }
-  
+      const name = user.firstName + " " + user.lastName;
       const token = await sign({id : user.id}, c.env.JWT_SECRET)
-      return c.text(token)
+      return c.json({
+        name,
+        token
+      })
   
     } catch(err){
       console.log(err)
