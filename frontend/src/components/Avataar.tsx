@@ -5,7 +5,7 @@ interface AvataarTypes{
    
 }
 
-export const Avataar =({authorName, renderSize, setVar}:AvataarTypes)=>{
+export const Avataar =({authorName, renderSize}:AvataarTypes)=>{
 
     let size: string;
     let textSize: string;
