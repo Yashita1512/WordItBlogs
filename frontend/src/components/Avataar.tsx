@@ -1,9 +1,11 @@
+
 interface AvataarTypes{    
     renderSize: 'small' | 'large' | 'medium',
-    authorName?: string, 
+    authorName?: string | null, 
+   
 }
 
-export const Avataar =({authorName, renderSize}:AvataarTypes)=>{
+export const Avataar =({authorName, renderSize, setVar}:AvataarTypes)=>{
 
     let size: string;
     let textSize: string;
@@ -21,15 +23,15 @@ export const Avataar =({authorName, renderSize}:AvataarTypes)=>{
             size = '3rem';
             textSize = '20px'
             break;
-     
     }
+
     return<>
-        {/* <div className={`w-${size} h-${size} bg-slate-200 rounded-full flex justify-center items-center`}> */}
         <div style={{ width: `${size}`, height: `${size}` }}  className="bg-slate-200 rounded-full flex justify-center items-center">
             <div style={{fontSize: `${textSize}` }}>
-            {authorName? ((authorName.split(' ')[0][0]) + (authorName.split(' ')[1] ? authorName.split(' ')[1][0] : '')).toUpperCase(): " "}
-            </div>
-               
+                {authorName? ((authorName.split(' ')[0][0]) + (authorName.split(' ')[1] ? authorName.split(' ')[1][0] : '')).toUpperCase(): " "}
+            </div>           
         </div>
+
     </>
 }
+

@@ -22,12 +22,14 @@ export const SignInInput = ()=>{
             <Heading text="Sign in an account"/>
             <Subheading text="Do not have an account?" linkText="Signup" link="/signup"/>
             <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, username: e.target.value})}}  label={"Username"} placeholder={"Enter your username"}/>
-            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, password: e.target.value})}}  label="Password" placeholder=""/>
+            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, password: e.target.value})}}  label="Password" placeholder="" type="password"/>
             <Button buttonLabel="Signin" sendData={async()=>{
                try{                                                                                                                                                                                                                                                                                                                                                                                                                                 
                 const response = await axios.post(BACKEND_URL + "/api/v1/user/signin", postInputs)
-                const token = response.data;
-                localStorage.setItem('token',token)
+                const token = response.data.token;
+                const name = response.data.name;
+                localStorage.setItem('token', token)
+                localStorage.setItem('author', name)
                 navigate('/blogs')
                }catch(err){
                 alert("Signin failed: Please check your network and try again.");

@@ -7,9 +7,9 @@ export const Blogs = ()=>{
 
     if(loading){
         return  <> 
-        <Appbar button={true} buttonText="New Blog" />
+        <Appbar button={true} buttonText="New Blog"/>
         <div className="flex flex-col items-center">
-            <div className="py-10 w-10/12 md:w-8/12 lg:w-6/12">
+            <div className="py-6 w-10/12 md:w-8/12 lg:w-6/12">
                 <BlogCardSkeleton/> 
                 <BlogCardSkeleton/> 
                 <BlogCardSkeleton/> 
@@ -21,9 +21,9 @@ export const Blogs = ()=>{
     }
 
     return (<>
-        <Appbar button={true} buttonText="New Blog" />
+        <Appbar button={true} buttonText="New Blog"/>
         <div className="flex flex-col items-center">
-            <div className="py-10 w-10/12 md:w-8/12 lg:w-6/12">
+            <div className=" py-6 w-10/12 md:w-8/12 lg:w-6/12">
                 <BlogCard blogArray={blogs}/> 
             </div>
         </div>

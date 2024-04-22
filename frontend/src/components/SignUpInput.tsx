@@ -31,8 +31,10 @@ export const SignUpInput = ()=>{
             <Button buttonLabel="Signup" sendData={async ()=>{
                 try{
                     const response = await axios.post(BACKEND_URL + "/api/v1/user/signup", postInputs);
-                    const token = response.data;
+                    const token = response.data.token;
+                    const name = response.data.name;
                     localStorage.setItem('token', token)
+                    localStorage.setItem('author', name)
                     navigate('/blogs')
                 }catch(err){
                     alert("Signup failed: Please check your network and try again.");

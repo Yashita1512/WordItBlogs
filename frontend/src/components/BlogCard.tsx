@@ -20,7 +20,7 @@ interface BlogCardTypes {
 
 export const BlogCard = ({blogArray}: BlogCardTypes)=>{
     return <>
-        {blogArray.map((blog)=>(
+        {blogArray.slice().reverse().map((blog)=>(
             <Link to={`/blog/${blog.id}`}>
             <div className="border-b-2 pt-6">
                 <div className="flex items-center mb-4">
