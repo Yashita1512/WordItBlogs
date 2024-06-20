@@ -32,7 +32,7 @@ export const SignInInput = ()=>{
                 localStorage.setItem('author', name)
                 navigate('/blogs')
                }catch(err){
-                alert("Signin failed: Please check your network and try again.");
+                alert("Signin failed: Please check your credentials and try again");
                }
             }}/>
         </div>

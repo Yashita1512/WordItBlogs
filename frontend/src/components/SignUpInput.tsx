@@ -37,7 +37,7 @@ export const SignUpInput = ()=>{
                     localStorage.setItem('author', name)
                     navigate('/blogs')
                 }catch(err){
-                    alert("Signup failed: Please check your network and try again.");
+                    alert("Signup failed: Email id already in use. Try again with a new email id");
                 }
             }}/>
         </div>
