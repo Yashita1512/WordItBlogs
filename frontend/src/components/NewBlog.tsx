@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../../config";
 import axios from "axios";
 import { CreateBlogInput } from "@yashita11/common";
@@ -10,6 +10,8 @@ export const NewBlog = () => {
         title: "",
         content: "",
     })
+
+    const navigate = useNavigate(); 
 
     return <>
         <div className="flex justify-center mt-10">
@@ -22,20 +24,20 @@ export const NewBlog = () => {
                     Write the content for the blog :
                 </div>
                 <textarea  rows={10} className="p-2.5 mb-4 w-full text-gray-900 bg-gray-50 border border-gray-300 rounded-md" onChange={(e:ChangeEvent<HTMLTextAreaElement>)=>{setBlogInputs({...blogInputs, content: e.target.value})}} placeholder="Blog Content..."></textarea>
-                <Link to='/blogs'>
-                    <button type="button" className="text-white bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-10 py-2.5" onClick={async()=>{
-                        await axios.post(`${BACKEND_URL}/api/v1/blog`, {
-                            title : blogInputs.title,
-                            content : blogInputs.content
-                        },{
-                            headers:{
-                                Authorization : localStorage.getItem('token')
-                            }
-                        })
-                    }}>
+                    <button type="button" className="text-white bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-10 py-2.5" 
+                        onClick={async()=>{
+                            await axios.post(`${BACKEND_URL}/api/v1/blog`, {
+                                title : blogInputs.title,
+                                content : blogInputs.content
+                            },{
+                                headers:{
+                                    Authorization : localStorage.getItem('token')
+                                }
+                            })
+                            navigate("/blogs")
+                        }}>
                         Publish
                     </button>
-                </Link>
             </div>
         </div>
     </>

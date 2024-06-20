@@ -4,6 +4,7 @@ import { withAccelerate } from '@prisma/extension-accelerate';
 import { verify } from 'hono/jwt';
 import { createBlogInput, updateBlogInput } from "@yashita11/common";
 export const blogRouter = new Hono();
+
 blogRouter.use("/*", async (c, next) => {
     //extract the user id
     const authHeader = c.req.header("Authorization") || "";

@@ -21,7 +21,7 @@ export const SignInInput = ()=>{
         <div className="w-8/12 sm:w-5/12">
             <Heading text="Sign in an account"/>
             <Subheading text="Do not have an account?" linkText="Signup" link="/signup"/>
-            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, username: e.target.value})}}  label={"Username"} placeholder={"Enter your username"}/>
+            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, username: e.target.value})}}  label={"Email"} placeholder={"Enter your username"}/>
             <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs, password: e.target.value})}}  label="Password" placeholder="" type="password"/>
             <Button buttonLabel="Signin" sendData={async()=>{
                try{                                                                                                                                                                                                                                                                                                                                                                                                                                 

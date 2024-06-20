@@ -24,7 +24,7 @@ export const SignUpInput = ()=>{
         <div className="w-8/12 sm:w-6/12">
             <Heading text="Create an account"/>
             <Subheading text="Already have an account?" linkText="Signin" link="/signin"/>
-            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs,username:e.target.value })}} label="Username" placeholder="m@example.com"/>
+            <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs,username:e.target.value })}} label="Email" placeholder="m@example.com"/>
             <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs,firstName:e.target.value })}} label="First Name" placeholder="John"/>
             <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs,lastName:e.target.value })}} label="Last Name" placeholder="Doe"/>
             <Inputpanes saveInputs={(e)=>{setPostInputs({...postInputs,password:e.target.value })}} label="Password" type="password"/>
