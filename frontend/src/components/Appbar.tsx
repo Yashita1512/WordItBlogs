@@ -46,7 +46,3 @@ export const Appbar=({button, buttonText}: AppBarTypes)=>{
 
   </>
 }
-
-//
-
-// </Link>

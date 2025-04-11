@@ -15,6 +15,9 @@ export const Blogs = ()=>{
                 <BlogCardSkeleton/> 
                 <BlogCardSkeleton/>
                 <BlogCardSkeleton/> 
+                <BlogCardSkeleton/> 
+                <BlogCardSkeleton/>
+                <BlogCardSkeleton/> 
             </div>
         </div>
         </>
